@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/adicionar_jogo"
+            android:textColor="@color/texto"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/nome_do_jogo"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editTituloJogo"
+            style="@style/CampoTexto"
+            android:hint="@string/exemplo_jogo"
+            android:inputType="textCapSentences" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/plataforma"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editPlataforma"
+            style="@style/CampoTexto"
+            android:hint="@string/exemplo_plataforma"
+            android:inputType="textCapSentences" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/status"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinnerStatus"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_campo"
+            android:paddingHorizontal="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/data_inicio"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editDataInicio"
+            style="@style/CampoTexto"
+            android:hint="@string/exemplo_data"
+            android:inputType="date" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/horas_jogadas"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editHorasJogadas"
+            style="@style/CampoTexto"
+            android:hint="@string/exemplo_horas"
+            android:inputType="numberDecimal"
+            android:digits="0123456789.," />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/progresso"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editProgresso"
+            style="@style/CampoTexto"
+            android:hint="@string/exemplo_progresso"
+            android:inputType="number"
+            android:digits="0123456789" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/observacoes"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editObservacoes"
+            style="@style/CampoTexto"
+            android:gravity="top|start"
+            android:hint="@string/exemplo_observacoes"
+            android:inputType="textCapSentences|textMultiLine"
+            android:minHeight="110dp"
+            android:padding="14dp"
+            android:singleLine="false" />
+
+        <Button
+            android:id="@+id/buttonSalvarJogo"
+            style="@style/BotaoPrincipal"
+            android:layout_marginTop="28dp"
+            android:text="@string/adicionar" />
+    </LinearLayout>
+</ScrollView>

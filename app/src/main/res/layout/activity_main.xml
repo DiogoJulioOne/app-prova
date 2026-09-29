@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_colecao"
+                    android:textColor="@color/texto"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textoBoasVindas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSair"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_botao_secundario"
+                android:minWidth="0dp"
+                android:text="@string/sair"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonAdicionarJogo"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/bg_botao_principal"
+            android:text="@string/adicionar_jogo"
+            android:textAllCaps="false"
+            android:textColor="@color/botao_lilas_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonMatch"
+                style="@style/BotaoSecundario"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.1"
+                android:minWidth="0dp"
+                android:paddingHorizontal="6dp"
+                android:text="@string/abrir_match" />
+
+            <Button
+                android:id="@+id/buttonChats"
+                style="@style/BotaoSecundario"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="0.95"
+                android:minWidth="0dp"
+                android:paddingHorizontal="6dp"
+                android:text="@string/abrir_chats" />
+
+            <Button
+                android:id="@+id/buttonPerfil"
+                style="@style/BotaoSecundario"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="0.95"
+                android:minWidth="0dp"
+                android:paddingHorizontal="6dp"
+                android:text="@string/abrir_perfil" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editPesquisaJogos"
+            style="@style/CampoTexto"
+            android:layout_marginTop="20dp"
+            android:hint="@string/pesquisar_jogos"
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
+
+        <LinearLayout
+            android:id="@+id/filtrosStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/filtroTodos"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_botao_principal"
+                android:minWidth="0dp"
+                android:paddingHorizontal="2dp"
+                android:text="@string/filtro_todos"
+                android:textAllCaps="false"
+                android:textColor="@color/botao_lilas_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/filtroJogando"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_botao_secundario"
+                android:minWidth="0dp"
+                android:paddingHorizontal="1dp"
+                android:text="@string/status_jogando"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/filtroPausado"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_botao_secundario"
+                android:minWidth="0dp"
+                android:paddingHorizontal="1dp"
+                android:text="@string/status_pausado"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/filtroZerado"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_botao_secundario"
+                android:minWidth="0dp"
+                android:paddingHorizontal="1dp"
+                android:text="@string/status_zerado"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/filtroQueroJogar"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_botao_secundario"
+                android:minWidth="0dp"
+                android:paddingHorizontal="1dp"
+                android:text="@string/status_quero_jogar"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textoContagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textoVazio"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_card_jogo"
+            android:gravity="center"
+            android:text="@string/colecao_vazia"
+            android:textColor="@color/texto_secundario"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/listaJogos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_jogo"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textoTituloJogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/texto"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textoPlataformaJogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/texto_secundario"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textoStatusJogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_status"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/destaque"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonEditarJogo"
+            style="@style/BotaoSecundario"
+            android:layout_width="88dp"
+            android:layout_height="42dp"
+            android:text="@string/editar" />
+
+        <Button
+            android:id="@+id/buttonExcluirJogo"
+            style="@style/BotaoSecundario"
+            android:layout_width="88dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/excluir" />
+    </LinearLayout>
+</LinearLayout>

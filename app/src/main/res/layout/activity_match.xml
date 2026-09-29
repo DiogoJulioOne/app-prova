@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/buttonVoltarMatch"
+            style="@style/BotaoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minWidth="0dp"
+            android:text="@string/voltar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/match_titulo"
+            android:textColor="@color/texto"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="18dp"
+            android:text="@string/match_subtitulo"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editPesquisaMatch"
+            style="@style/CampoTexto"
+            android:hint="@string/match_pesquisa_hint"
+            android:inputType="textCapSentences"
+            android:imeOptions="actionSearch" />
+
+        <TextView
+            android:id="@+id/textoVazioMatch"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:text="@string/match_pesquise_jogo"
+            android:textColor="@color/texto_secundario"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/listaResultadosMatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>
