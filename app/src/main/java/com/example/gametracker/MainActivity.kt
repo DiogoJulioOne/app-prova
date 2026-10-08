@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.gametracker.dados.BibliotecaSugestoes
 import com.example.gametracker.dados.JogoRepository
 import com.example.gametracker.dados.UsuarioRepository
 import com.example.gametracker.modelos.Jogo
@@ -22,8 +23,12 @@ import com.example.gametracker.telas.LoginActivity
 import com.example.gametracker.telas.PerfilActivity
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-
-class MainActivity : AppCompatActivity() {
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+class MainActivity : AppCompatActivity(), SensorEventListener {
 
     private val jogos by lazy { JogoRepository(this) }
     private val usuarios by lazy { UsuarioRepository(this) }
@@ -35,11 +40,19 @@ class MainActivity : AppCompatActivity() {
     private var filtroStatusSelecionado = FILTRO_TODOS
     private var carregamentoLista: Job? = null
     private var usuarioId: String? = null
+    private lateinit var sensorManager: SensorManager
+    private var acelerometro: Sensor? = null
+
+    private var telaParaBaixo = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        sensorManager =
+            getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
+        acelerometro =
+            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         listaJogos = findViewById(R.id.listaJogos)
         textoVazio = findViewById(R.id.textoVazio)
         textoContagem = findViewById(R.id.textoContagem)
@@ -95,11 +108,23 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        acelerometro?.let {
+            sensorManager.registerListener(
+                this,
+                it,
+                SensorManager.SENSOR_DELAY_NORMAL
+            )
+        }
+
         if (::listaJogos.isInitialized) {
             atualizarLista()
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
     private fun atualizarLista() {
         val donoId = usuarioId ?: return
         carregamentoLista?.cancel()
@@ -250,6 +275,29 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER) {
+
+            val x = event.values[0]
+            val y = event.values[1]
+            val z = event.values[2]
+
+            if (z < -7f && !telaParaBaixo) {
+                telaParaBaixo = true
+                val jogoSorteado = BibliotecaSugestoes.jogos.random()
+                AlertDialog.Builder(this)
+                    .setTitle("🎮 Jogo sorteado")
+                    .setMessage("Que tal jogar hoje: $jogoSorteado?")
+                    .setPositiveButton("OK", null)
+                    .show()
+            } else if (z > -3f) {
+                telaParaBaixo = false
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    }
     private companion object {
         const val FILTRO_TODOS = "Todos"
         const val FILTRO_JOGANDO = "Jogando"
@@ -257,5 +305,6 @@ class MainActivity : AppCompatActivity() {
         const val FILTRO_ZERADO = "Zerado"
         const val FILTRO_QUERO_JOGAR = "Quero jogar"
         const val STATUS_CONCLUIDO_ANTERIOR = "Concluído"
+
     }
 }
